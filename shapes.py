@@ -22,7 +22,6 @@ class Plane:
 
     def draw(plane):
         glTranslatef(plane.position[0], plane.position[1], plane.position[2])
-        #glPushMatrix()
         glRotated(plane.rotation_x,1,0,0)
         glRotated(plane.rotation_y,0,1,0)
         glBegin(GL_QUADS)
@@ -33,7 +32,6 @@ class Plane:
                 glColor4f(plane.color[0], plane.color[1], plane.color[0], 1)
             glVertex3fv(vertex)
         glEnd()
-        #glPopMatrix()
         glTranslatef(-plane.position[0], -plane.position[1], -plane.position[2])
 
 
@@ -180,7 +178,6 @@ class Cube:
             return tzmin
         else:
             return None
-
 
 class Sphere:
     def __init__(sphere, radius, slices, stacks, color, reflection, shininess):

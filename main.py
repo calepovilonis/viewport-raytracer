@@ -53,12 +53,9 @@ camera = np.array([0, 0, 0])
 camera_test = np.array([0., -6., 0.0])
 pixel_screen = [0.0, -5., 0.0]
 camera_rotation = [0, 0, 0]
-#camera_lookat = np.array([0.0,0.0,0.0])
-
 ambient_color = np.array([.05,.05,.05])
 
 # SHAPE INFO
-
 vertices = (
     (1, -1, -1),
     (1, 1, -1),
@@ -130,9 +127,6 @@ while run:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE or event.key == pygame.K_RETURN:
                 run = False
-            # if event.key == pygame.K_PAUSE or event.key == pygame.K_p:
-            #     paused = not paused
-            #     pygame.mouse.set_pos(displayCenter)
             if event.key == pygame.K_PLUS:
                 print("plus")
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -176,7 +170,6 @@ while run:
         mouseMove = pygame.mouse.get_rel()
         mousepress = pygame.mouse.get_pressed()
 
-
         # init model view matrix
         glLoadIdentity()
 
@@ -198,8 +191,6 @@ while run:
             glRotatef(left_right_angle, 0.0, 1.0, 0.0)
             camera_rotation = [camera_rotation[0], camera_rotation[1]+left_right_angle, camera_rotation[2]]
 
-        #print(camera)
-
         mods = pygame.key.get_mods()
 
         selected = None
@@ -207,7 +198,6 @@ while run:
             if obj.isselected == True:
                 selected = obj
                 break
-
 
         # apply the movment
         if keypress[pygame.K_r]:
@@ -238,8 +228,6 @@ while run:
                         _, min_distance = nearest_intersected_object(gameobjects, shifted_point, intersection_to_light)
                         intersection_to_light_distance = np.linalg.norm(light - intersection)
                         is_shadowed = min_distance < intersection_to_light_distance
-
-                        #print(min_distance, type(nearest_object), intersection, shifted_point, intersection_to_light_distance)
 
                         if is_shadowed:
                             continue
@@ -360,7 +348,6 @@ while run:
                 selected.color[2] = float(b)
                 selected.reflection = float(reflect)
                 selected.shininess = float(s)
-
             if keypress[pygame.K_m]:
                 move = True
                 rotate = False
