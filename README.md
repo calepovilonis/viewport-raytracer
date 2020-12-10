@@ -1,6 +1,8 @@
 # viewport-raytracer
 Kansas State University Senior Project
 
+https://github.com/calepovilonis/viewport-raytracer
+
 Instructions to run:
   - install all required libaries in main.py, shapes.py with 'pip install ..." ie 'pip install pandas'.
   - when installing PyOpenGL, run 'pip install' and then the files PyOpenGL-3.1.5-cp36-cp36m-win_amd64.whl and PyOpenGL_accelerate-3.1.5-cp36-cp36m-win_amd64.whl.
